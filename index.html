@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AppsForUkraine.com</title>
+  <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
+  <!-- Bootstrap , fonts & icons  -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./fonts/icon-font/css/style.css">
+  <link rel="stylesheet" href="./fonts/typography-font/typo.css">
+  <link rel="stylesheet" href="./fonts/fontawesome-5/css/all.css">
+  <!-- Plugin'stylesheets  -->
+  <link rel="stylesheet" href="./plugins/aos/aos.min.css">
+  <link rel="stylesheet" href="./plugins/fancybox/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="./plugins/nice-select/nice-select.min.css">
+  <link rel="stylesheet" href="./plugins/slick/slick.min.css">
+  <!-- Vendor stylesheets  -->
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- Custom stylesheet -->
+</head>
+
+<body data-theme="light">
+  <div class="site-wrapper overflow-hidden ">
+    <div id="loading">
+      <img src="./image/preloader.gif" alt="">
+    </div>
+    <div id="app">
+      <!-- Header Area -->
+      <!-- Header Area -->
+      <header class="site-header site-header--menu-right px-7 px-lg-10 z-index-99 dynamic-sticky-bg dark-mode-texts--desktops dark-cloud-sticky-bg site-header--absolute site-header--sticky">
+        <div class="container">
+          <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0">
+            <!-- Brand Logo-->
+            <div class="brand-logo mt-3 mt-md-0 dark-mode-texts">
+              <!-- light version logo (logo must be black)-->
+              <img src="image/logo.png" alt="" class="light-version-logo">
+              <!-- Dark version logo (logo must be White)-->
+              <img src="image/logo.png" alt="" class="dark-version-logo">
+            </div>
+            <div class="collapse navbar-collapse" id="mobile-menu">
+              <div class="navbar-nav-wrapper">
+                <ul class="navbar-nav main-menu">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#home" style="color: #1d293f!important">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#why" style="color: #1d293f!important">Why</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#apps" style="color: #1d293f!important">Apps</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#join" style="color: #1d293f!important">Join</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#faq" style="color: #1d293f!important">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+              <button class="d-block d-lg-none offcanvas-btn-close" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+                <i class="gr-cross-icon"></i>
+              </button>
+            </div>
+            <div class="header-btn ml-auto ml-lg-6 d-none d-sm-block font-size-3">
+              <button type="button" class="btn btn btn-white btn-medium rounded-5 font-size-3" @click.prevent="toggleModal">
+                Donate
+              </button>
+            </div>
+            <!-- Mobile Menu Hamburger-->
+            <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0 dark-mode-texts" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+              <!-- <i class="icon icon-simple-remove icon-close"></i> -->
+              <span class="hamburger hamburger--squeeze js-hamburger">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+              </span>
+              </span>
+            </button>
+            <!--/.Mobile Menu Hamburger Ends-->
+          </nav>
+        </div>
+      </header>
+      <!-- navbar- -->
+      <!-- End Header Area -->
+      <div class="bg-default-3 pt-25 pt-md-25 pt-lg-29" style="height: 100vh" id="#home">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-9">
+              <div class="text-center mb-11 mb-lg-24">
+                <h1 class="font-size-11 mb-7 mx-xs-16 mx-sm-12 mx-md-9 mx-lg-0">&nbsp;&nbsp;Help Ukraine,<br>Get Awesome Apps.</h1>
+                <p class="font-size-7 px-lg-5 mb-0">Set up a weekly donation to provide humanitarian aid in Ukraine and get access to 16+ awesome apps.</p>
+                <div class="btn-group d-inline-block mt-10">
+                  <a class="btn btn-blue-3 btn-2 rounded-5" href="#" @click="toggleModal">Yes, I want to help!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <!-- Single Counter -->
+            <div class="col d-flex justify-content-end mr-12">
+              <div class="mb-11 mb-lg-0">
+                <h2 class="font-size-9 mb-6">
+                  $<span :class="{counter: !!raisedAmount}">vue{raisedAmount}vue</span></h2>
+                <div class="mt-5">
+                  <img class="mb-7" src="./image/home-2/png/heart-icon-group.png" alt="">
+                  <h5 class="font-size-5 font-weight-normal mb-1">Already raised</h5>
+                  <p class="font-size-5 text-dodger-blue-2 mb-0"><a href="https://altruisto.com/ukraine/receipts" target="_blank">See receipts</a></p>
+                </div>
+              </div>
+            </div>
+            <!-- End Single Counter -->
+            <!-- Single Counter -->
+            <div class="col">
+              <div class="mb-11 mb-lg-0">
+                <h2 class="font-size-9 mb-6">
+                  <span :class="{counter: !!donorsCount}">vue{donorsCount}vue</span>
+                </h2>
+                <div class="mt-5">
+                  <img class="mb-7" src="./image/home-2/png/star-group.png" alt="">
+                  <h5 class="font-size-5 font-weight-normal mb-1">Supporters</h5>
+                </div>
+              </div>
+            </div>
+            <!-- End Single Counter -->
+          </div>
+          <!-- Hero Image Group -->
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-xs-11">
+              <div class="l3-hero-image-group w-100 h-75">
+                <!-- Image One -->
+                <div class="img-1 shadow-13" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" data-aos-once="true">
+                  <!-- Image Two -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Hero Image Group -->
+        </div>
+      </div>
+      <div class="pt-28 pt-md-32 pt-lg-30 pt-xl-33 pb-15 pb-md-19 pb-lg-34" id="why">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <!-- Left Image -->
+            <div class="col-xl-6 col-lg-5 col-md-8 col-xs-11">
+              <!-- content img start -->
+              <div class="l4-content-img-group">
+                <div class="img-1">
+                  <img class="w-100" src="./image/landing/why-1.jpg" alt="" data-aos="fade-right" data-aos-duration="300" data-aos-delay="200" data-aos-once="true">
+                </div>
+                <div class="img-2">
+                  <img class="w-100" src="./image/landing/why-2.jpg" alt="" data-aos="fade-left" data-aos-duration="300" data-aos-delay="400" data-aos-once="true">
+                </div>
+                <div class="img-3">
+                  <img class="w-100" src="./image/landing/why-3.jpg" alt="" data-aos="fade-up" data-aos-duration="300" data-aos-delay="600" data-aos-once="true">
+                </div>
+              </div>
+            </div>
+            <!-- End Left Image -->
+            <!-- Right Image -->
+            <div class="col-xl-5 offset-lg-1 col-lg-6 col-md-8 mt-n13 mt-md-n8 mt-lg-n0">
+              <div class="pt-30 pt-lg-0 mt-lg-0" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">
+                <h2 class="font-size-10 mb-8 letter-spacing-n83 pr-xs-22 pr-sm-18 pr-md-0">The Why</h2>
+                <p class="font-size-5 heading-default-color mb-9">The first month of war is behind us and already three million people had to flee their homes. Thousands of people and animals died. Hospitals, airports, schools were destroyed.</p>
+                <p class="font-size-5 heading-default-color mb-9">The initial response to this humanitarian crisis has been absolutely great. Within hours people have self-organized to provide shelter, food, warm clothes, and legal assistance. <strong>A true win of humanity.</strong></p>
+                <p class="font-size-5 heading-default-color mb-9">However, <strong>the need for help will only grow as the fight continues.</strong> More refugees will leave Ukraine and the people who already left will need safe homes, jobs, medical care, and their children will need access to education. We worry that when the first wave of emotion subside people will kind of move on and forget.</p>
+                <p class="font-size-5 heading-default-color mb-9">After the initial wave of help, we need to roll our sleeves and start preparing <strong>sustainable</strong> support and continuously flowing financial aid. </p>
+                <p class="font-size-5 heading-default-color mb-9">We created a fundraiser for <strong>Polish Humanitarian Action</strong> and partnered with several startups that decided to give away their products to anyone who sets a regular donation (and more partnerships are coming). In this way, we want to create an additional source of financing humanitarian aid for Ukraine, which will be able to function for the upcoming weeks, even when the first emotions fade away.</p>
+                <p class="font-size-5 heading-default-color mb-9">Donations are transferred to the above-mentioned charity in full (after possible deduction of fees of payment operators). Altruisto charges no extra fees - we are a not-for-profit social enterprise.</p>
+                <p class="font-size-5 heading-default-color mb-9">We are committed to full transparency - you can see the receipts <a href="https://altruisto.com/ukraine/receipts" target="_blank">here.</a></p>
+              </div>
+            </div>
+            <!-- End Right Image -->
+          </div>
+        </div>
+      </div>
+      <div class=" bg-default-3 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" id="apps">
+        <div class="container">
+          <!-- Section Title -->
+          <div class="row align-items-center justify-content-center justify-content-lg-start mb-10 mb-lg-17">
+            <div class="col-xl-5 col-lg-6 col-xs-10">
+              <div class="text-center text-lg-left" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
+                <h2 class="font-size-10 font-weight-medium pr-md-6 pr-lg-9 pr-xl-0 mb-0">The apps you get</h2>
+              </div>
+            </div>
+          </div>
+          <!-- End Section Title -->
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-10">
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://www.unum.la" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://www.unum.la">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.comhttps://uploads-ssl.webflow.com/61005d24feea1032c4ad8d29/61005d24feea1025daad8d51_UNUM%20Logo%20Black.svg" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">UNUM</h4>
+                    <p class="font-size-3">An app used by 16M+ people to create beautiful content with photo editor, filters or a layout with collage.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>1 year of free &quot;Elite&quot; subscription</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://betterme.world/product/meditation" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://betterme.world/product/meditation">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/betterme.jpeg" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">BetterMe Mental Health</h4>
+                    <p class="font-size-3">Simple meditations and guided courses for mental well-being. Created by a team from 🇺🇦</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://bear.app" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://bear.app">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/bearapp.jpeg" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Bear App (iOS)</h4>
+                    <p class="font-size-3">Bear is a beautiful, flexible writing app for crafting notes and prose.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>1 year of Bear Pro (only 25 spots)</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://www.abaenglish.com/" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://www.abaenglish.com/">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/abaenglish.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">ABA English</h4>
+                    <p class="font-size-3">Recognized as one of the best English language learning apps in the world. Take your English to the next level.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access for 1 year</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://meaningful-things.com/focus" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://meaningful-things.com/focus">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/focus.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Focus - Time Management for iOS</h4>
+                    <p class="font-size-3">Pomodoro Time Manager for Professionals</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access for 1 year</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://meaningful-things.com/filter" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://meaningful-things.com/filter">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/filter.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Filter - App &amp; Website Blocker for Mac</h4>
+                    <p class="font-size-3">Filter App helps you to block distractions and lets you regain time for what really matters. Don’t let distracting websites and apps steal your time. </p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access for 1 year</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://concepts.app " target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://concepts.app ">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/concepts.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Concepts (iOS)</h4>
+                    <p class="font-size-3">Every idea begins as a concept. Write notes on the infinite canvas, make mind-maps and mood boards, sketch plans, designs and illustrations. Share with friends, clients and other apps.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access for 1 year</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://ourflat-app.com/" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://ourflat-app.com/">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/ourflat.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">OurFlat (Android)</h4>
+                    <p class="font-size-3">Shared shopping list, finances, calendar, chores, and chat for your household.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access for 1 year</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://chester-sw.com/" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://chester-sw.com/">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/stock.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Stock and Inventory Simple</h4>
+                    <p class="font-size-3">If you need to keep track of your stock of any kind of items - this application can help you to do it. It can be used as a stock management tool or inventory tracker at home or in a warehouse. A small shop can use it for sales and purchases management. Made by a team in 🇷🇺.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+            </div>
+            <div class="col-lg-6 col-md-10 mt-lg-n23">
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://betterme.world/product/healthcoaching" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://betterme.world/product/healthcoaching">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/betterme.jpeg" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">BetterMe Health Coaching</h4>
+                    <p class="font-size-3">Personalized workout and nutrition plans supported by real human coaches, comprehensive progress tracking, and cognitive therapy practice-based tips. Created by a team from 🇺🇦</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://mytasksapp.com" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://mytasksapp.com">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/mytasksapp.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">My Tasks App</h4>
+                    <p class="font-size-3">Tasks is a beautifully simple, todo list and reminder app that will help keep your busy life organised everyday. Used by over 1 million people worldwide.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Get premium account for free</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://bear.app" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://bear.app">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/bearapp.jpeg" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Bear App (Mac)</h4>
+                    <p class="font-size-3">Bear is a beautiful, flexible writing app for crafting notes and prose.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>1 year of Bear Pro (only 25 spots)</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://play.google.com/store/apps/details?id=com.perracolabs.pixtica" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://play.google.com/store/apps/details?id=com.perracolabs.pixtica">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/pixitca.jpg" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Pixitca</h4>
+                    <p class="font-size-3">Pixitca is a feature-rich «All-in-One» camera app with great photo and video editors, a comprehensive gallery, and plenty of creative tools.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://meaningful-things.com/attentive" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://meaningful-things.com/attentive">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/attentive.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Attentive - Screen Time Control for iOS</h4>
+                    <p class="font-size-3">App that help you build healthy smartphone habits. Cut back on mindless screen time and change the way you use your phone.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access for 1 year</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://www.mindspa.me/" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://www.mindspa.me/">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/mindspa.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Mindspa</h4>
+                    <p class="font-size-3">Mindspa is a mobile app designed to provide emotional support in everyday challenges.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access to PTSD therapeutic program</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://ourflat-app.com/" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://ourflat-app.com/">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/ourflat.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">OurFlat (iOS)</h4>
+                    <p class="font-size-3">Shared shopping list, finances, calendar, chores, and chat for your household.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access for 1 year</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://chester-sw.com/food-checklist/" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://chester-sw.com/food-checklist/">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/foodlist.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Food List Tracking &amp; Shopping</h4>
+                    <p class="font-size-3">This application allows you to track your food supplies at home, keep an eye on expiration dates of products, use the shopping list to replenish your stock of food. Scan barcodes to speed up your work. Made by a team in 🇷🇺.</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+              <!-- App -->
+              <div data-aos="zoom-in" data-aos-duration="900" data-aos-once="true">
+                <a href="https://taskito.io/" target="_blank" class="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1" href="https://taskito.io/">
+                  <div class="mr-10">
+                    <img class="square-116" src="https://altruisto.com/images/fundraiser/taskito.png" alt="" style="object-fit: contain;">
+                  </div>
+                  <div class="mt-8 mt-xs-0">
+                    <h4 class="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">Taskito</h4>
+                    <p class="font-size-3">Keep daily goals small, life goals bigger!</p>
+                    <div class="d-flex align-items-center flex-wrap">
+                      <span class="text-bali-gray font-size-3 pr-9"><i class="fa fa-clock mr-2 font-weight-normal"></i>Free access</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End App -->
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center" id="join">
+          <div class="col-lg-6">
+            <div class="text-center pt-7 pt-md-12 pt-lg-16">
+              <h2 class="font-size-9 mb-9" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">Interested in joining our intiative?</h2>
+              <p data-aos="fade-up" data-aos-duration="500" data-aos-once="true">We're makers, designers, engineers, founders, growth hackers, and storytellers who decided to use our skills and products to help the victims of this war. Would you like to offer your product or skills as well?</p>
+              <a class="btn btn-blue-3 btn-2 rounded-5" href="#" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">I want to join</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-22 pb-13 pb-md-18 pb-lg-25" id="faq">
+        <div class="container">
+          <!-- Section Title -->
+          <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-9">
+              <div class="text-center mb-13 mb-lg-19">
+                <h2 class="font-size-9 mb-0">Frequently Asked Question</h2>
+              </div>
+            </div>
+          </div>
+          <!-- End Section Title -->
+          <!-- Faqs -->
+          <!-- Faqs -->
+          <div class="row justify-content-center">
+            <!-- Single Faq -->
+            <div class="col-lg-6 col-md-10">
+              <div class="d-flex mb-10 mb-lg-17" data-aos="fade-up" data-aos-duration="300" data-aos-once="true">
+                <div class="mr-6">
+                  <div class="bg-light-orange circle-28 text-white mt-1">
+                    <i class="fa fa-question"></i>
+                  </div>
+                </div>
+                <div class="">
+                  <h4 class="font-size-7 mb-7">How does it work?</h4>
+                  <p class="font-size-5 pr-md-10 pr-lg-0 mb-0">First, you click the "donate" button and choose the amount you want to donate per week. The minimal donation is $5 (or equivalent in your currency). You will be redirected to a thank you page where you can find a button to claim your free access to premium versions of the apps. You will also receive an email with the link to a claiming page. And, most importantly, thanks to you people in Ukraine will receive food and hygiene products to the inhabitants of the Donetsk and Luhansk oblasts who are currently at war.</p>
+                  <p class="font-size-5 pr-md-10 pr-lg-0 mb-0">Donations are transferred to the Polish Humanitarian Action in full (after possible deduction of fees of payment operators). Altruisto charges no extra fees - we are a not-for-profit social enterprise.</p>
+                </div>
+              </div>
+            </div>
+            <!-- End Single Faq -->
+            <!-- Single Faq -->
+            <div class="col-lg-6 col-md-10">
+              <div class="d-flex mb-10 mb-lg-17" data-aos="fade-up" data-aos-duration="600" data-aos-once="true">
+                <div class="mr-6">
+                  <div class="bg-light-orange circle-28 text-white mt-1">
+                    <i class="fa fa-question"></i>
+                  </div>
+                </div>
+                <div class="">
+                  <h4 class="font-size-7 mb-7">Who receives the funds?</h4>
+                  <p class="font-size-5 pr-md-10 pr-lg-0 mb-0">All of the money from the fundraiser are donated to Polish Humanitarian Action. an organization that provides humanitarian aid in places of conflict since 1992. PAH provides the victims of war with food, hygiene products and other means of help.</p>
+                  <p class="font-size-5 pr-md-10 pr-lg-0 mb-0">The funds are used to supply food and hygiene products to the inhabitants of the Donetsk and Luhansk oblasts who are currently at war. We also want to provide those who are fleeing their homes with food and other means of help, including the people moving inside the country, and refugees escaping to Poland.</p>
+                </div>
+              </div>
+            </div>
+            <!-- End Single Faq -->
+            <!-- Single Faq -->
+            <div class="col-lg-6 col-md-10">
+              <div class="d-flex mb-10 mb-lg-17" data-aos="fade-up" data-aos-duration="300" data-aos-once="true">
+                <div class="mr-6">
+                  <div class="bg-light-orange circle-28 text-white mt-1">
+                    <i class="fa fa-question"></i>
+                  </div>
+                </div>
+                <div class="">
+                  <h4 class="font-size-7 mb-7">How can I cancel the subscription?</h4>
+                  <p class="font-size-5 pr-md-10 pr-lg-0 mb-0">Please find the initial email you received from us after your donation. You can also contact us at hello@altruisto.com.</p>
+                </div>
+              </div>
+            </div>
+            <!-- End Single Faq -->
+            <!-- Single Faq -->
+            <div class="col-lg-6 col-md-10">
+              <div class="d-flex mb-10 mb-lg-17" data-aos="fade-up" data-aos-duration="600" data-aos-once="true">
+                <div class="mr-6">
+                  <div class="bg-light-orange circle-28 text-white mt-1">
+                    <i class="fa fa-question"></i>
+                  </div>
+                </div>
+                <div class="">
+                  <h4 class="font-size-7 mb-7">What to do if I the free access to an app doesn't work?</h4>
+                  <p class="font-size-5 pr-md-10 pr-lg-0 mb-0">If you run into any technincal problems you can contact the app's suport, you can contact our support team at hello@altruisto.com, or both :)</p>
+                </div>
+              </div>
+            </div>
+            <!-- End Single Faq -->
+          </div>
+          <!-- Button  -->
+          <div class="text-center pt-lg-3 pb-lg-3" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+            <p class="font-size-6 mb-0">Still have a question about our initiative?<a class="text-blue-3 btn-link-with-underline ml-5" href="mailto:hello@altruisto.com">Contact us</a></p>
+          </div>
+          <!-- Button End -->
+        </div>
+      </div>
+      <div class="bg-images" style="background-image:url(./image/landing/cta-bg.jpg)">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-xl-8 col-lg-9 col-md-11">
+              <div class="text-center pt-14 pt-md-18 pb-15 pb-md-19 py-lg-31 dark-mode-texts" data-aos="zoom-in" data-aos-duration="500" data-aos-once="true">
+                <h2 class="font-size-11 mb-7">Let's help the victims<br class="d-none d-sm-block">of war in Ukraine together.</h2>
+                <button class="btn btn-dodger-blue-2 rounded-5 mt-12" @click="toggleModal">Donate</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="bg-dark-cloud pb-7 dark-mode-texts position-relative">
+          <div class="container">
+            <div class="row align-items-center pt-10 border-top">
+              <div class="col-lg-6 text-center text-lg-left px-0">
+                <div class="copyright">
+                  <p class="mb-0 font-size-3 text-bali-gray">© Altruisto 2022</p>
+                </div>
+              </div>
+              <div class="col-lg-6 text-center text-lg-right px-0">
+                <div class="footer-right mt-5 mt-lg-0">
+                  <ul class="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end mb-0">
+                    <li><a class="text-white gr-hover-text-blue-3 ml-7" href="https://twitter.com/altruistoCom"><i
+                                        class="fab fa-twitter"></i></a></li>
+                    <li><a class="text-white gr-hover-text-blue-3 ml-7" href="https://facebook.com/altruistoCom"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Modal -->
+      <div :class="modalClasses" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h4>Select amount</h4>
+              <span class="mb-1 mt-4">Select your weekly donation</span>
+              <div>
+                <button class="btn btn-sm btn-gray-1 rounded-5" @click="setDonationAmount(5)">
+                  $5
+                </button>
+                <button class="btn btn-sm btn-gray-1 rounded-5" @click="setDonationAmount(25)">
+                  $25
+                </button>
+                <button class="btn btn-sm btn-gray-1 rounded-5" @click="setDonationAmount(50)">
+                  $50
+                </button>
+              </div>
+              <label for="amount" class="mb-0 mt-7">Amount</label>
+              <div class="input-group mb-1 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input type="number" class="form-control" id="amount" aria-label="Amount (to the nearest dollar)" style="height: 56px" v-model.number="donationAmount">
+              </div>
+              <label for="name" class="mb-0  mt-7">Name (leave blank if you want your donation to be anonymous)</label>
+              <div class="input-group mb-1 input-group">
+                <input type="text" class="form-control" id="name" aria-label="Name" style="height: 56px" v-model="donor">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-gray btn-2 rounded-5" @click="toggleModal()">Close</button>
+              <button type="button" class="btn btn-blue-3 btn-2 rounded-5" @click="makeDonation">Donate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Vendor Scripts -->
+  <script src="js/vendor.min.js"></script>
+  <!-- Plugin's Scripts -->
+  <script src="./plugins/fancybox/jquery.fancybox.min.js"></script>
+  <script src="./plugins/nice-select/jquery.nice-select.min.js"></script>
+  <script src="./plugins/aos/aos.min.js"></script>
+  <script src="./plugins/slick/slick.min.js"></script>
+  <script src="./plugins/counter-up/jquery.counterup.min.js"></script>
+  <script src="./plugins/counter-up/jquery.waypoints.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Activation Script -->
+  <script src="js/custom.js"></script>
+  <script>
+    const stripe = Stripe("pk_live_51KWgX8ATvvx9S1LEKpR6T42uxh2gSFAoriu1GHPQq0nntuzLfVyubQMn2qndQxulU5A9KwdhfmOnE9IIJAv6zAdY00gFpGUouh")
+    var app = new Vue({
+      el: "#app",
+      delimiters: ['vue{', '}vue'],
+      data() {
+        return {
+          modalClasses: ['modal', 'fade'],
+          donationAmount: 10,
+          donor: '',
+          errorMessage: '',
+          raisedAmount: null,
+          donorsCount: null
+        }
+      },
+      methods: {
+        toggleModal() {
+          // document.body.className += ' modal-open'
+          let modalClasses = this.modalClasses
+
+          if (modalClasses.indexOf('d-block') > -1) {
+            modalClasses.pop()
+            modalClasses.pop()
+
+            //hide backdrop
+            let backdrop = document.querySelector('.modal-backdrop')
+            document.body.removeChild(backdrop)
+          } else {
+            modalClasses.push('d-block')
+            modalClasses.push('show')
+
+            //show backdrop
+            let backdrop = document.createElement('div')
+            backdrop.classList = "modal-backdrop fade show"
+            document.body.appendChild(backdrop)
+          }
+        },
+
+        setDonationAmount(amount) {
+          this.donationAmount = amount
+        },
+
+        makeDonation() {
+          const response = axios.post("https://api2.altruisto.com/v2/direct-donation", {
+            amount: Math.round((typeof this.donationAmount === "string" ? parseInt(this.donationAmount) : this.donationAmount) * 100),
+            fundraiser: "Donation for Polish Humanitarian Action",
+            subPath: "ukraine",
+            donor: this.donor,
+            currency: 'usd',
+            locale: 'en',
+            type: 'weekly'
+          }).then((response) => {
+            stripe.redirectToCheckout({
+              sessionId: response.data
+            });
+          })
+
+        },
+
+        loadFundraiserStats() {
+          console.log("loading fundraiser stats")
+          axios.get("https://api2.altruisto.com/v2/direct-donation/ukraine").then(response => {
+            this.raisedAmount = Math.floor(response.data.raised.current / 100);
+            this.donorsCount = response.data.raised.donorsCount
+
+            setTimeout(() => {
+              $(".counter").counterUp({
+                delay: 10,
+                time: 1000,
+              });
+            }, 0)
+          })
+        }
+
+
+      },
+      mounted() {
+        this.loadFundraiserStats();
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>
