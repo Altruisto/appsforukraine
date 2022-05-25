@@ -636,11 +636,11 @@
                 <button class="btn btn-sm btn-gray-1 rounded-5" @click="setDonationAmount(5)">
                   $5
                 </button>
+                <button class="btn btn-sm btn-gray-1 rounded-5" @click="setDonationAmount(10)">
+                  $10
+                </button>
                 <button class="btn btn-sm btn-gray-1 rounded-5" @click="setDonationAmount(25)">
                   $25
-                </button>
-                <button class="btn btn-sm btn-gray-1 rounded-5" @click="setDonationAmount(50)">
-                  $50
                 </button>
               </div>
               <label for="amount" class="mb-0 mt-7">Amount</label>
@@ -653,6 +653,12 @@
               <label for="name" class="mb-0  mt-7">Name (leave blank if you want your donation to be anonymous)</label>
               <div class="input-group mb-1 input-group">
                 <input type="text" class="form-control" id="name" aria-label="Name" style="height: 56px" v-model="donor">
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" v-model="agreedToEmail">
+                <label class="form-check-label" for="defaultCheck1">
+                  <small>I want to receive email updates about the results of humanitarian help, new milestones, new partners, and other important news.</small>
+                </label>
               </div>
             </div>
             <div class="modal-footer">
@@ -690,7 +696,8 @@
           donor: '',
           errorMessage: '',
           raisedAmount: null,
-          donorsCount: null
+          donorsCount: null,
+          agreedToEmail: false,
         }
       },
       methods: {
@@ -728,7 +735,8 @@
             donor: this.donor,
             currency: 'usd',
             locale: 'en',
-            type: 'weekly'
+            type: 'weekly',
+            agreedToEmail: this.agreedToEmail,
           }).then((response) => {
             stripe.redirectToCheckout({
               sessionId: response.data
